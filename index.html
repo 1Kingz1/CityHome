@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityHome</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-size: cover;
+        }
+
+        div {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 16px;
+        }
+
+        input, select {
+            margin-bottom: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+       
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div>
+ <h1>Data System</h1>
+    <form id="dataSystem">
+     <Label for="unitNumber">Unit Number:</Label>
+     <input type="text" id="unitNumber" placeholder="B0711" required>
+<br>        
+     <label for="ciDate">Check-In Date:</label>
+     <input type="date" id="ciDate" placeholder="dd/mm/yy" required style="margin:auto;">
+<br>
+     <label for="coDate">Check-Out Date:</label>
+     <input type="date" id="coDate" placeholder="dd/mm/yy" required style="margin:auto;">
+<br>
+     <label for="depositCurrency">Deposit:</label>
+     <select name="depositCurrency" id="depositCurrency">
+         <option value="MYR">MYR</option>
+         <option value="USD">USD</option>
+         <option value="SGD">SGD</option>
+         <option value="Others">Others</option>
+     </select>
+     <input type="number" id="depositAmount" placeholder="200" required>
+<br>
+     <label for="parking">Parking:</label>
+      <input type="number" id="parkingAmount" placeholder="20" required>
+      <input type="text" id="parkingLot" placeholder="L2 817" required>
+
+     <button type="button" id="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('submit').addEventListener('click', function () {
+        const ciDate = document.getElementById('ciDate').value;
+        const coDate = document.getElementById('coDate').value;
+        const depositCurrency = document.getElementById('depositCurrency').value;
+        const depositAmount = document.getElementById('depositAmount').value;
+        const parkingAmount = document.getElementById('parkingAmount').value;
+        const parkingLot = document.getElementById('parkingLot').value;
+        
+        // Customize the WhatsApp message with the form data and pricing
+
+        const whatsappMessage = `Deposits record%0A%0ACheck in Date: %0A${ciDate}%0ACheck Out Date: %0A${coDate}%0ADeposit Currency: %0A${depositCurrency}%0ADeposit Amount: %0A${depositAmount}%0AParking: %0A${parkingAmount}%0AParking Lot: %0A${parkingLot}`;
+
+        // Create a WhatsApp link
+        const whatsappLink = `https://wa.me/+60139941188?text=${whatsappMessage}`;
+
+        // Open WhatsApp chat in a new tab
+        window.open(whatsappLink, '_blank');
+    });
+</script>
+</body>
+</html>
