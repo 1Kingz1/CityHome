@@ -111,6 +111,45 @@
         // Open WhatsApp chat in a new tab
         window.open(whatsappLink, '_blank');
     });
+    
+
+    
+    const { google } = require('googleapis');
+const sheets = google.sheets('v4');
+
+// Your OAuth 2.0 credentials
+const credentials = require('./path-to-your-credentials.json');
+
+// Your Google Sheet ID
+const spreadsheetId = 'your-spreadsheet-id';
+
+// Authenticate with OAuth 2.0
+const auth = new google.auth.GoogleAuth({
+  credentials,
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
+
+// Create a new Google Sheets instance
+const sheetsInstance = google.sheets({ version: 'v4', auth });
+
+// Example data to be inserted
+const rowData = ['B0711', '2023-01-01', '2023-01-15', 'MYR', 200, 20, 'L2 817'];
+
+// Append data to the Google Sheet
+sheetsInstance.spreadsheets.values.append({
+  spreadsheetId,
+  range: 'Sheet1', // Change to your sheet name or range
+  valueInputOption: 'RAW',
+  resource: {
+    values: [rowData],
+  },
+}, (err, res) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log('Data appended successfully!');
+});
 </script>
 </body>
 </html>
