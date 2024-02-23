@@ -167,7 +167,7 @@ label #cancel{
     padding: 50px;
     border-radius: 30px;
     color: #fff;
-    transition: all .5s;
+    transition: all .5s ease;
 }
 
   /* -------------------Main Body---------------- */
@@ -212,8 +212,16 @@ main {
     transform: translate(-50%,-50%);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 1000;
     color: rgb(255, 255, 255);
+}
+.image-holder div span h3{
+    padding: 3px;
+    font-weight: 530;
+}
+
+.image-holder div span p{
+    padding: 3px;
+    font-weight: 400;
 }
 
 
@@ -284,9 +292,27 @@ footer h1{
 }
 
 @media (max-width: 1050px){
+
+    .title h1 {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 37px;
+        font-weight: 550;
+        background-color: rgba(255,255,255,.1);
+        padding: 50px;
+        border-radius: 30px;
+        color: #fff;
+        transition: all .5s;
+    }
+    
+
     .sub-header{
         margin: 50px 0 20px;
-        font-size: 3vw;
+        font-size: 120%;
         font-weight: 800;
         color: #333;
     }
@@ -384,3 +410,4 @@ footer h1{
         opacity: 1;
     }
 }
+
